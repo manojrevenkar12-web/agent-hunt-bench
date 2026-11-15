@@ -126,10 +126,21 @@ def test_a_case_with_a_person_absorbs_later_alerts():
     assert len(out.items) == 1 and len(out.cases) == 1 and len(out.cases[0].alerts) == 3
 
 
-def test_a_dismissed_case_comes_back_only_when_it_gets_worse():
+def test_a_dismissed_case_comes_back_on_a_new_detection_or_a_worse_one():
     ok = {"escalate": True, "claims": [{"eid": "idp-1", "field": "geo", "value": "RU"}]}
-    out = route({}, [alert(1, 0), alert(2, 10, rule="s"), alert(3, 20, sev="high", rule="t")], ok, verdict="benign")
-    assert [i.key for i in out.items] == ["r:1", "t:3"]
+    alerts = [alert(1, 0), alert(2, 10), alert(3, 20, rule="s"), alert(4, 30, rule="s"), alert(5, 40, sev="high")]
+    out = route({}, alerts, ok, verdict="benign")
+    assert [i.key for i in out.items] == ["r:1", "s:3", "r:5"]
+
+
+def test_a_missed_page_does_not_silence_the_next_critical():
+    """Held-out finding: the on-call engineer dismissed the first critical of an intrusion, and the keychain dump and
+    the ransomware that followed, also critical, were treated as repeats of it."""
+    ok = {"escalate": True, "claims": [{"eid": "idp-1", "field": "geo", "value": "RU"}]}
+    verdicts = iter(["benign", "incident"])
+    alerts = [alert(1, 0, sev="critical", rule="pipe"), alert(2, 20, sev="critical", rule="keychain")]
+    out = run(CFG["designs"]["platform"], CFG, alerts, EVENTS, graph(), lambda k, p, c: ok, lambda *x: (x[1] + 15, next(verdicts)))
+    assert [i.verdict for i in out.items] == ["benign", "incident"]
 
 
 def test_holds_are_only_for_the_configured_detection():

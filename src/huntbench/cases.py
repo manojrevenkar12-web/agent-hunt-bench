@@ -17,6 +17,7 @@ class Case:
     alerts: list[Alert] = field(default_factory=list)
     state: str = "open"  # open, with_person, incident, dismissed, closed_by_model
     dismissed_at: str | None = None  # the severity a person had already dismissed
+    dismissed_rules: set[str] = field(default_factory=set)  # and the detections they had seen when they did
 
     @property
     def severity(self) -> str:

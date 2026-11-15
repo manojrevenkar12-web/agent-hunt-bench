@@ -68,8 +68,8 @@ def run(
         case = book.add(a)
         if case.state in ("with_person", "incident"):
             continue  # a person already has this case; the alert joins it
-        if case.state == "dismissed" and SEVERITY.index(a.severity) <= SEVERITY.index(case.dismissed_at or "low"):
-            continue  # nothing more serious than what a person already dismissed
+        if case.state == "dismissed" and a.rule in case.dismissed_rules and SEVERITY.index(a.severity) <= SEVERITY.index(case.dismissed_at or "low"):
+            continue  # a repeat of what a person already dismissed; a new detection or a worse one comes back
 
         page = case.severity in t["page"]
         reason = "detection"
@@ -114,5 +114,6 @@ def run(
             out.contained[case.id] = (item.handled_at, plan(case, graph))
         else:
             case.state, case.dismissed_at = "dismissed", case.severity
+            case.dismissed_rules = {x.rule for x in case.alerts}
     out.cases = book.cases
     return out

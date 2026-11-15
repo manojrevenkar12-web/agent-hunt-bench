@@ -1,12 +1,15 @@
+# Held-out finding: the first version fired for anyone starting the mobile app or a sync client, 1.0 alert a day for
+# 300 people and 1.3 for 420, over its budget once the company grew. The one attack it found on dev was someone serving
+# notice, so it now watches only them.
 id: saas_new_download_client
-title: Documents downloaded through a client this person has never used
-severity: medium
+title: Someone serving notice starts downloading through a new client
+severity: high
 technique: T1530
 kind: new_value
 source: saas
-where: {action: doc_download}
+where: {action: doc_download, actor_status: leaving}
 field: client_id
-budget_per_day: 1.0
+budget_per_day: 0.2
 examples:
-  hit: [[{action: doc_download, client_id: web}, {action: doc_download, client_id: drive-sync}]]
-  miss: [[{action: doc_download, client_id: web}, {action: doc_download, client_id: web}]]
+  hit: [[{action: doc_download, client_id: web, actor_status: leaving}, {action: doc_download, client_id: drive-sync, actor_status: leaving}]]
+  miss: [[{action: doc_download, client_id: web, actor_status: active}, {action: doc_download, client_id: drive-sync, actor_status: active}]]

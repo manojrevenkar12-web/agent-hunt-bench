@@ -1,0 +1,2490 @@
+{
+ "coverage": [
+  {
+   "designs": [
+    "siem_basic",
+    "detection_as_code",
+    "llm_triage",
+    "platform"
+   ],
+   "kind": "account_takeover",
+   "stage": "mfa_fatigue",
+   "technique": "T1621"
+  },
+  {
+   "designs": [
+    "siem_basic",
+    "detection_as_code",
+    "llm_triage",
+    "platform"
+   ],
+   "kind": "account_takeover",
+   "stage": "access",
+   "technique": "T1078"
+  },
+  {
+   "designs": [
+    "siem_basic",
+    "detection_as_code",
+    "llm_triage",
+    "platform"
+   ],
+   "kind": "account_takeover",
+   "stage": "collection",
+   "technique": "T1530"
+  },
+  {
+   "designs": [
+    "siem_basic",
+    "detection_as_code",
+    "llm_triage",
+    "platform"
+   ],
+   "kind": "account_takeover",
+   "stage": "exfil",
+   "technique": "T1567"
+  },
+  {
+   "designs": [
+    "siem_basic",
+    "detection_as_code",
+    "llm_triage",
+    "platform"
+   ],
+   "kind": "insider_exfil",
+   "stage": "collection",
+   "technique": "T1530"
+  },
+  {
+   "designs": [
+    "siem_basic",
+    "detection_as_code",
+    "llm_triage",
+    "platform"
+   ],
+   "kind": "insider_exfil",
+   "stage": "exfil",
+   "technique": "T1567"
+  },
+  {
+   "designs": [
+    "siem_basic",
+    "detection_as_code",
+    "llm_triage",
+    "platform"
+   ],
+   "kind": "oauth_consent",
+   "stage": "grant",
+   "technique": "T1528"
+  },
+  {
+   "designs": [
+    "detection_as_code",
+    "llm_triage",
+    "platform"
+   ],
+   "kind": "oauth_consent",
+   "stage": "collection",
+   "technique": "T1550.001"
+  },
+  {
+   "designs": [
+    "siem_basic",
+    "detection_as_code",
+    "llm_triage",
+    "platform"
+   ],
+   "kind": "oauth_consent",
+   "stage": "exfil",
+   "technique": "T1567"
+  },
+  {
+   "designs": [],
+   "kind": "agent_injection",
+   "stage": "injection",
+   "technique": "AML.T0051"
+  },
+  {
+   "designs": [
+    "detection_as_code",
+    "llm_triage",
+    "platform"
+   ],
+   "kind": "agent_injection",
+   "stage": "exfil",
+   "technique": "T1567"
+  },
+  {
+   "designs": [
+    "siem_basic",
+    "detection_as_code",
+    "llm_triage",
+    "platform"
+   ],
+   "kind": "cloud_key_abuse",
+   "stage": "discovery",
+   "technique": "T1580"
+  },
+  {
+   "designs": [
+    "siem_basic",
+    "detection_as_code",
+    "llm_triage",
+    "platform"
+   ],
+   "kind": "cloud_key_abuse",
+   "stage": "exfil",
+   "technique": "T1537"
+  },
+  {
+   "designs": [
+    "siem_basic",
+    "detection_as_code",
+    "llm_triage",
+    "platform"
+   ],
+   "kind": "endpoint_intrusion",
+   "stage": "execution",
+   "technique": "T1059"
+  },
+  {
+   "designs": [
+    "detection_as_code",
+    "llm_triage",
+    "platform"
+   ],
+   "kind": "endpoint_intrusion",
+   "stage": "credentials",
+   "technique": "T1003"
+  },
+  {
+   "designs": [
+    "detection_as_code",
+    "llm_triage",
+    "platform"
+   ],
+   "kind": "endpoint_intrusion",
+   "stage": "lateral",
+   "technique": "T1021.004"
+  },
+  {
+   "designs": [
+    "siem_basic",
+    "detection_as_code",
+    "llm_triage",
+    "platform"
+   ],
+   "kind": "endpoint_intrusion",
+   "stage": "impact",
+   "technique": "T1486"
+  }
+ ],
+ "designs": {
+  "detection_as_code": {
+   "alerts": 155,
+   "alerts_per_day": 11.1,
+   "analyst_hours_per_day": 2.2,
+   "attack_alerts_closed_by_model": 0,
+   "before_impact": 18,
+   "benign_holds": 0,
+   "campaigns": [
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "account_takeover-0",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 444,
+     "kind": "account_takeover",
+     "minutes_to_detect": 30,
+     "minutes_to_person": 45,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "access",
+      "collection",
+      "exfil",
+      "mfa_fatigue"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "account_takeover-1",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 589,
+     "kind": "account_takeover",
+     "minutes_to_detect": 57,
+     "minutes_to_person": 117,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "collection",
+      "exfil"
+     ],
+     "variant": true
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "account_takeover-2",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 422,
+     "kind": "account_takeover",
+     "minutes_to_detect": 7,
+     "minutes_to_person": 31,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "access",
+      "collection",
+      "exfil",
+      "mfa_fatigue"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "account_takeover-3",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 593,
+     "kind": "account_takeover",
+     "minutes_to_detect": 59,
+     "minutes_to_person": 119,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "collection",
+      "exfil"
+     ],
+     "variant": true
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "insider_exfil-0",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 628,
+     "kind": "insider_exfil",
+     "minutes_to_detect": 20,
+     "minutes_to_person": 146,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "collection",
+      "exfil"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "insider_exfil-1",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 499,
+     "kind": "insider_exfil",
+     "minutes_to_detect": 18,
+     "minutes_to_person": 108,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "collection",
+      "exfil"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "insider_exfil-2",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 3180,
+     "kind": "insider_exfil",
+     "minutes_to_detect": 0,
+     "minutes_to_person": 84,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "collection",
+      "exfil"
+     ],
+     "variant": true
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "insider_exfil-3",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 680,
+     "kind": "insider_exfil",
+     "minutes_to_detect": 22,
+     "minutes_to_person": 136,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "collection",
+      "exfil"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "oauth_consent-0",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 553,
+     "kind": "oauth_consent",
+     "minutes_to_detect": 0,
+     "minutes_to_person": 24,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "collection",
+      "exfil",
+      "grant"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "oauth_consent-1",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 362,
+     "kind": "oauth_consent",
+     "minutes_to_detect": 60,
+     "minutes_to_person": 138,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "collection",
+      "exfil"
+     ],
+     "variant": true
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "oauth_consent-2",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 870,
+     "kind": "oauth_consent",
+     "minutes_to_detect": 0,
+     "minutes_to_person": 72,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "collection",
+      "exfil",
+      "grant"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "oauth_consent-3",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 660,
+     "kind": "oauth_consent",
+     "minutes_to_detect": 60,
+     "minutes_to_person": 192,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "collection",
+      "exfil"
+     ],
+     "variant": true
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": false,
+     "campaign": "agent_injection-0",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 5,
+     "kind": "agent_injection",
+     "minutes_to_detect": 5,
+     "minutes_to_person": 20,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "exfil"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": false,
+     "campaign": "agent_injection-1",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 5,
+     "kind": "agent_injection",
+     "minutes_to_detect": 5,
+     "minutes_to_person": 20,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "exfil"
+     ],
+     "variant": true
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": false,
+     "campaign": "agent_injection-2",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 5,
+     "kind": "agent_injection",
+     "minutes_to_detect": 5,
+     "minutes_to_person": 20,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "exfil"
+     ],
+     "variant": true
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": false,
+     "campaign": "agent_injection-3",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 5,
+     "kind": "agent_injection",
+     "minutes_to_detect": 5,
+     "minutes_to_person": 20,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "exfil"
+     ],
+     "variant": true
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": false,
+     "campaign": "cloud_key_abuse-0",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 42,
+     "kind": "cloud_key_abuse",
+     "minutes_to_detect": 0,
+     "minutes_to_person": 57,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "discovery",
+      "exfil"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": false,
+     "campaign": "cloud_key_abuse-1",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 51,
+     "kind": "cloud_key_abuse",
+     "minutes_to_detect": 0,
+     "minutes_to_person": 66,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "discovery",
+      "exfil"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "cloud_key_abuse-2",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 155,
+     "kind": "cloud_key_abuse",
+     "minutes_to_detect": 0,
+     "minutes_to_person": 138,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "discovery",
+      "exfil"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "cloud_key_abuse-3",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 119,
+     "kind": "cloud_key_abuse",
+     "minutes_to_detect": 0,
+     "minutes_to_person": 114,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "discovery",
+      "exfil"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "endpoint_intrusion-0",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 244,
+     "kind": "endpoint_intrusion",
+     "minutes_to_detect": 108,
+     "minutes_to_person": 180,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "impact",
+      "lateral"
+     ],
+     "variant": true
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "endpoint_intrusion-1",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 286,
+     "kind": "endpoint_intrusion",
+     "minutes_to_detect": 107,
+     "minutes_to_person": 215,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "impact",
+      "lateral"
+     ],
+     "variant": true
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "endpoint_intrusion-2",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 107,
+     "kind": "endpoint_intrusion",
+     "minutes_to_detect": 0,
+     "minutes_to_person": 15,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "credentials",
+      "execution",
+      "impact",
+      "lateral"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "endpoint_intrusion-3",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 196,
+     "kind": "endpoint_intrusion",
+     "minutes_to_detect": 0,
+     "minutes_to_person": 192,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "credentials",
+      "execution",
+      "impact",
+      "lateral"
+     ],
+     "variant": false
+    }
+   ],
+   "cases_per_day": 11.1,
+   "caught": 24,
+   "closed_by_model": 0,
+   "closed_on_unsupported_report": 0,
+   "detected": 24,
+   "failed_checks": 0,
+   "holds": 0,
+   "items_per_day": 11.1,
+   "median_minutes_to_person": 96.0,
+   "name": "detection_as_code",
+   "night_pages": 7,
+   "pages_per_day": 1.93,
+   "playbook_steps": {
+    "deactivate_access_key": 17,
+    "hold_agent_egress": 4,
+    "isolate_host": 12,
+    "lock_account": 41,
+    "require_mfa_reenrol": 6,
+    "revert_snapshot_sharing": 17,
+    "revoke_agent_token": 4,
+    "revoke_sessions": 6,
+    "rotate_credentials": 12,
+    "suspend_external_links": 41
+   },
+   "precision": 0.594,
+   "reports": 0,
+   "unsupported_claims_relied_on": 0
+  },
+  "llm_triage": {
+   "alerts": 155,
+   "alerts_per_day": 11.1,
+   "analyst_hours_per_day": 1.3,
+   "attack_alerts_closed_by_model": 15,
+   "before_impact": 16,
+   "benign_holds": 0,
+   "campaigns": [
+    {
+     "attack_alerts_closed_by_model": 2,
+     "before_impact": true,
+     "campaign": "account_takeover-0",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 444,
+     "kind": "account_takeover",
+     "minutes_to_detect": 30,
+     "minutes_to_person": 45,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "access",
+      "collection",
+      "exfil",
+      "mfa_fatigue"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 1,
+     "before_impact": false,
+     "campaign": "account_takeover-1",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 589,
+     "kind": "account_takeover",
+     "minutes_to_detect": 57,
+     "minutes_to_person": 604,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "collection",
+      "exfil"
+     ],
+     "variant": true
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "account_takeover-2",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 422,
+     "kind": "account_takeover",
+     "minutes_to_detect": 7,
+     "minutes_to_person": 19,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "access",
+      "collection",
+      "exfil",
+      "mfa_fatigue"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "account_takeover-3",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 593,
+     "kind": "account_takeover",
+     "minutes_to_detect": 59,
+     "minutes_to_person": 89,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "collection",
+      "exfil"
+     ],
+     "variant": true
+    },
+    {
+     "attack_alerts_closed_by_model": 1,
+     "before_impact": true,
+     "campaign": "insider_exfil-0",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 628,
+     "kind": "insider_exfil",
+     "minutes_to_detect": 20,
+     "minutes_to_person": 110,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "collection",
+      "exfil"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 1,
+     "before_impact": true,
+     "campaign": "insider_exfil-1",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 499,
+     "kind": "insider_exfil",
+     "minutes_to_detect": 18,
+     "minutes_to_person": 90,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "collection",
+      "exfil"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "insider_exfil-2",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 3180,
+     "kind": "insider_exfil",
+     "minutes_to_detect": 0,
+     "minutes_to_person": 66,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "collection",
+      "exfil"
+     ],
+     "variant": true
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "insider_exfil-3",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 680,
+     "kind": "insider_exfil",
+     "minutes_to_detect": 22,
+     "minutes_to_person": 76,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "collection",
+      "exfil"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 2,
+     "before_impact": true,
+     "campaign": "oauth_consent-0",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 553,
+     "kind": "oauth_consent",
+     "minutes_to_detect": 0,
+     "minutes_to_person": 18,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "collection",
+      "exfil",
+      "grant"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 1,
+     "before_impact": false,
+     "campaign": "oauth_consent-1",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 362,
+     "kind": "oauth_consent",
+     "minutes_to_detect": 60,
+     "minutes_to_person": 377,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "collection",
+      "exfil"
+     ],
+     "variant": true
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "oauth_consent-2",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 870,
+     "kind": "oauth_consent",
+     "minutes_to_detect": 0,
+     "minutes_to_person": 30,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "collection",
+      "exfil",
+      "grant"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "oauth_consent-3",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 660,
+     "kind": "oauth_consent",
+     "minutes_to_detect": 60,
+     "minutes_to_person": 150,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "collection",
+      "exfil"
+     ],
+     "variant": true
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": false,
+     "campaign": "agent_injection-0",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 5,
+     "kind": "agent_injection",
+     "minutes_to_detect": 5,
+     "minutes_to_person": 20,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "exfil"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": false,
+     "campaign": "agent_injection-1",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 5,
+     "kind": "agent_injection",
+     "minutes_to_detect": 5,
+     "minutes_to_person": 20,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "exfil"
+     ],
+     "variant": true
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": false,
+     "campaign": "agent_injection-2",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 5,
+     "kind": "agent_injection",
+     "minutes_to_detect": 5,
+     "minutes_to_person": 20,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "exfil"
+     ],
+     "variant": true
+    },
+    {
+     "attack_alerts_closed_by_model": 1,
+     "before_impact": false,
+     "campaign": "agent_injection-3",
+     "caught": false,
+     "detected": true,
+     "impact_minutes": 5,
+     "kind": "agent_injection",
+     "minutes_to_detect": 5,
+     "minutes_to_person": null,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "exfil"
+     ],
+     "variant": true
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": false,
+     "campaign": "cloud_key_abuse-0",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 42,
+     "kind": "cloud_key_abuse",
+     "minutes_to_detect": 0,
+     "minutes_to_person": 57,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "discovery",
+      "exfil"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 1,
+     "before_impact": false,
+     "campaign": "cloud_key_abuse-1",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 51,
+     "kind": "cloud_key_abuse",
+     "minutes_to_detect": 0,
+     "minutes_to_person": 66,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "discovery",
+      "exfil"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 1,
+     "before_impact": true,
+     "campaign": "cloud_key_abuse-2",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 155,
+     "kind": "cloud_key_abuse",
+     "minutes_to_detect": 0,
+     "minutes_to_person": 102,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "discovery",
+      "exfil"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 2,
+     "before_impact": true,
+     "campaign": "cloud_key_abuse-3",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 119,
+     "kind": "cloud_key_abuse",
+     "minutes_to_detect": 0,
+     "minutes_to_person": 96,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "discovery",
+      "exfil"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "endpoint_intrusion-0",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 244,
+     "kind": "endpoint_intrusion",
+     "minutes_to_detect": 108,
+     "minutes_to_person": 150,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "impact",
+      "lateral"
+     ],
+     "variant": true
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "endpoint_intrusion-1",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 286,
+     "kind": "endpoint_intrusion",
+     "minutes_to_detect": 107,
+     "minutes_to_person": 197,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "impact",
+      "lateral"
+     ],
+     "variant": true
+    },
+    {
+     "attack_alerts_closed_by_model": 1,
+     "before_impact": true,
+     "campaign": "endpoint_intrusion-2",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 107,
+     "kind": "endpoint_intrusion",
+     "minutes_to_detect": 0,
+     "minutes_to_person": 15,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "credentials",
+      "execution",
+      "impact",
+      "lateral"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 1,
+     "before_impact": true,
+     "campaign": "endpoint_intrusion-3",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 196,
+     "kind": "endpoint_intrusion",
+     "minutes_to_detect": 0,
+     "minutes_to_person": 150,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "credentials",
+      "execution",
+      "impact",
+      "lateral"
+     ],
+     "variant": false
+    }
+   ],
+   "cases_per_day": 11.1,
+   "caught": 23,
+   "closed_by_model": 64,
+   "closed_on_unsupported_report": 5,
+   "detected": 24,
+   "failed_checks": 0,
+   "holds": 0,
+   "items_per_day": 6.5,
+   "median_minutes_to_person": 76.0,
+   "name": "llm_triage",
+   "night_pages": 7,
+   "pages_per_day": 1.71,
+   "playbook_steps": {
+    "deactivate_access_key": 14,
+    "hold_agent_egress": 3,
+    "isolate_host": 11,
+    "lock_account": 34,
+    "require_mfa_reenrol": 5,
+    "revert_snapshot_sharing": 14,
+    "revoke_agent_token": 3,
+    "revoke_sessions": 5,
+    "rotate_credentials": 11,
+    "suspend_external_links": 34
+   },
+   "precision": 0.846,
+   "reports": 155,
+   "unsupported_claims_relied_on": 13
+  },
+  "platform": {
+   "alerts": 155,
+   "alerts_per_day": 11.1,
+   "analyst_hours_per_day": 0.5,
+   "attack_alerts_closed_by_model": 0,
+   "before_impact": 23,
+   "benign_holds": 0,
+   "campaigns": [
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "account_takeover-0",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 444,
+     "kind": "account_takeover",
+     "minutes_to_detect": 30,
+     "minutes_to_person": 45,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "access",
+      "collection",
+      "exfil",
+      "mfa_fatigue"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "account_takeover-1",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 589,
+     "kind": "account_takeover",
+     "minutes_to_detect": 57,
+     "minutes_to_person": 75,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "collection",
+      "exfil"
+     ],
+     "variant": true
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "account_takeover-2",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 422,
+     "kind": "account_takeover",
+     "minutes_to_detect": 7,
+     "minutes_to_person": 19,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "access",
+      "collection",
+      "exfil",
+      "mfa_fatigue"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "account_takeover-3",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 593,
+     "kind": "account_takeover",
+     "minutes_to_detect": 59,
+     "minutes_to_person": 83,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "collection",
+      "exfil"
+     ],
+     "variant": true
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "insider_exfil-0",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 628,
+     "kind": "insider_exfil",
+     "minutes_to_detect": 20,
+     "minutes_to_person": 50,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "collection",
+      "exfil"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "insider_exfil-1",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 499,
+     "kind": "insider_exfil",
+     "minutes_to_detect": 18,
+     "minutes_to_person": 54,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "collection",
+      "exfil"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "insider_exfil-2",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 3180,
+     "kind": "insider_exfil",
+     "minutes_to_detect": 0,
+     "minutes_to_person": 30,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "collection",
+      "exfil"
+     ],
+     "variant": true
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "insider_exfil-3",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 680,
+     "kind": "insider_exfil",
+     "minutes_to_detect": 22,
+     "minutes_to_person": 52,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "collection",
+      "exfil"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "oauth_consent-0",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 553,
+     "kind": "oauth_consent",
+     "minutes_to_detect": 0,
+     "minutes_to_person": 18,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "collection",
+      "exfil",
+      "grant"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "oauth_consent-1",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 362,
+     "kind": "oauth_consent",
+     "minutes_to_detect": 60,
+     "minutes_to_person": 96,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "collection",
+      "exfil"
+     ],
+     "variant": true
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "oauth_consent-2",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 870,
+     "kind": "oauth_consent",
+     "minutes_to_detect": 0,
+     "minutes_to_person": 30,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "collection",
+      "exfil",
+      "grant"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "oauth_consent-3",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 660,
+     "kind": "oauth_consent",
+     "minutes_to_detect": 60,
+     "minutes_to_person": 102,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "collection",
+      "exfil"
+     ],
+     "variant": true
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "agent_injection-0",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 5,
+     "kind": "agent_injection",
+     "minutes_to_detect": 5,
+     "minutes_to_person": 20,
+     "prevented_by_hold": true,
+     "stages_seen": [
+      "exfil"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "agent_injection-1",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 5,
+     "kind": "agent_injection",
+     "minutes_to_detect": 5,
+     "minutes_to_person": 20,
+     "prevented_by_hold": true,
+     "stages_seen": [
+      "exfil"
+     ],
+     "variant": true
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "agent_injection-2",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 5,
+     "kind": "agent_injection",
+     "minutes_to_detect": 5,
+     "minutes_to_person": 20,
+     "prevented_by_hold": true,
+     "stages_seen": [
+      "exfil"
+     ],
+     "variant": true
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "agent_injection-3",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 5,
+     "kind": "agent_injection",
+     "minutes_to_detect": 5,
+     "minutes_to_person": 20,
+     "prevented_by_hold": true,
+     "stages_seen": [
+      "exfil"
+     ],
+     "variant": true
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "cloud_key_abuse-0",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 42,
+     "kind": "cloud_key_abuse",
+     "minutes_to_detect": 0,
+     "minutes_to_person": 30,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "discovery",
+      "exfil"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "cloud_key_abuse-1",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 51,
+     "kind": "cloud_key_abuse",
+     "minutes_to_detect": 0,
+     "minutes_to_person": 36,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "discovery",
+      "exfil"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "cloud_key_abuse-2",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 155,
+     "kind": "cloud_key_abuse",
+     "minutes_to_detect": 0,
+     "minutes_to_person": 30,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "discovery",
+      "exfil"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "cloud_key_abuse-3",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 119,
+     "kind": "cloud_key_abuse",
+     "minutes_to_detect": 0,
+     "minutes_to_person": 48,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "discovery",
+      "exfil"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "endpoint_intrusion-0",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 244,
+     "kind": "endpoint_intrusion",
+     "minutes_to_detect": 108,
+     "minutes_to_person": 138,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "impact",
+      "lateral"
+     ],
+     "variant": true
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "endpoint_intrusion-1",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 286,
+     "kind": "endpoint_intrusion",
+     "minutes_to_detect": 107,
+     "minutes_to_person": 149,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "impact",
+      "lateral"
+     ],
+     "variant": true
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "endpoint_intrusion-2",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 107,
+     "kind": "endpoint_intrusion",
+     "minutes_to_detect": 0,
+     "minutes_to_person": 15,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "credentials",
+      "execution",
+      "impact",
+      "lateral"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": false,
+     "campaign": "endpoint_intrusion-3",
+     "caught": false,
+     "detected": true,
+     "impact_minutes": 196,
+     "kind": "endpoint_intrusion",
+     "minutes_to_detect": 0,
+     "minutes_to_person": null,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "credentials",
+      "execution",
+      "impact",
+      "lateral"
+     ],
+     "variant": false
+    }
+   ],
+   "cases_per_day": 6.1,
+   "caught": 23,
+   "closed_by_model": 51,
+   "closed_on_unsupported_report": 0,
+   "detected": 24,
+   "failed_checks": 8,
+   "holds": 4,
+   "items_per_day": 2.6,
+   "median_minutes_to_person": 36.0,
+   "name": "platform",
+   "night_pages": 0,
+   "pages_per_day": 0.5,
+   "playbook_steps": {
+    "deactivate_access_key": 4,
+    "hold_agent_egress": 4,
+    "isolate_host": 3,
+    "lock_account": 8,
+    "require_mfa_reenrol": 4,
+    "revert_snapshot_sharing": 4,
+    "revoke_agent_token": 4,
+    "revoke_sessions": 4,
+    "rotate_credentials": 3,
+    "suspend_external_links": 8
+   },
+   "precision": 0.676,
+   "reports": 88,
+   "unsupported_claims_relied_on": 0
+  },
+  "siem_basic": {
+   "alerts": 1195,
+   "alerts_per_day": 85.4,
+   "analyst_hours_per_day": 17.1,
+   "attack_alerts_closed_by_model": 0,
+   "before_impact": 1,
+   "benign_holds": 0,
+   "campaigns": [
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": false,
+     "campaign": "account_takeover-0",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 444,
+     "kind": "account_takeover",
+     "minutes_to_detect": 0,
+     "minutes_to_person": 690,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "access",
+      "collection",
+      "exfil",
+      "mfa_fatigue"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": false,
+     "campaign": "account_takeover-1",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 589,
+     "kind": "account_takeover",
+     "minutes_to_detect": 47,
+     "minutes_to_person": 647,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "collection",
+      "exfil"
+     ],
+     "variant": true
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": false,
+     "campaign": "account_takeover-2",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 422,
+     "kind": "account_takeover",
+     "minutes_to_detect": 0,
+     "minutes_to_person": 648,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "access",
+      "collection",
+      "exfil",
+      "mfa_fatigue"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": false,
+     "campaign": "account_takeover-3",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 593,
+     "kind": "account_takeover",
+     "minutes_to_detect": 48,
+     "minutes_to_person": 654,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "collection",
+      "exfil"
+     ],
+     "variant": true
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": false,
+     "campaign": "insider_exfil-0",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 628,
+     "kind": "insider_exfil",
+     "minutes_to_detect": 34,
+     "minutes_to_person": 862,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "collection",
+      "exfil"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": false,
+     "campaign": "insider_exfil-1",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 499,
+     "kind": "insider_exfil",
+     "minutes_to_detect": 34,
+     "minutes_to_person": 1840,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "collection",
+      "exfil"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": false,
+     "campaign": "insider_exfil-2",
+     "caught": false,
+     "detected": false,
+     "impact_minutes": 3180,
+     "kind": "insider_exfil",
+     "minutes_to_detect": null,
+     "minutes_to_person": null,
+     "prevented_by_hold": false,
+     "stages_seen": [],
+     "variant": true
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": false,
+     "campaign": "insider_exfil-3",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 680,
+     "kind": "insider_exfil",
+     "minutes_to_detect": 38,
+     "minutes_to_person": 686,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "collection",
+      "exfil"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": true,
+     "campaign": "oauth_consent-0",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 553,
+     "kind": "oauth_consent",
+     "minutes_to_detect": 0,
+     "minutes_to_person": 96,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "exfil",
+      "grant"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": false,
+     "campaign": "oauth_consent-1",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 362,
+     "kind": "oauth_consent",
+     "minutes_to_detect": 0,
+     "minutes_to_person": 630,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "exfil",
+      "grant"
+     ],
+     "variant": true
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": false,
+     "campaign": "oauth_consent-2",
+     "caught": false,
+     "detected": true,
+     "impact_minutes": 870,
+     "kind": "oauth_consent",
+     "minutes_to_detect": 0,
+     "minutes_to_person": null,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "exfil",
+      "grant"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": false,
+     "campaign": "oauth_consent-3",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 660,
+     "kind": "oauth_consent",
+     "minutes_to_detect": 0,
+     "minutes_to_person": 1524,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "exfil",
+      "grant"
+     ],
+     "variant": true
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": false,
+     "campaign": "agent_injection-0",
+     "caught": false,
+     "detected": false,
+     "impact_minutes": 5,
+     "kind": "agent_injection",
+     "minutes_to_detect": null,
+     "minutes_to_person": null,
+     "prevented_by_hold": false,
+     "stages_seen": [],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": false,
+     "campaign": "agent_injection-1",
+     "caught": false,
+     "detected": false,
+     "impact_minutes": 5,
+     "kind": "agent_injection",
+     "minutes_to_detect": null,
+     "minutes_to_person": null,
+     "prevented_by_hold": false,
+     "stages_seen": [],
+     "variant": true
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": false,
+     "campaign": "agent_injection-2",
+     "caught": false,
+     "detected": false,
+     "impact_minutes": 5,
+     "kind": "agent_injection",
+     "minutes_to_detect": null,
+     "minutes_to_person": null,
+     "prevented_by_hold": false,
+     "stages_seen": [],
+     "variant": true
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": false,
+     "campaign": "agent_injection-3",
+     "caught": false,
+     "detected": false,
+     "impact_minutes": 5,
+     "kind": "agent_injection",
+     "minutes_to_detect": null,
+     "minutes_to_person": null,
+     "prevented_by_hold": false,
+     "stages_seen": [],
+     "variant": true
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": false,
+     "campaign": "cloud_key_abuse-0",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 42,
+     "kind": "cloud_key_abuse",
+     "minutes_to_detect": 0,
+     "minutes_to_person": 774,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "discovery",
+      "exfil"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": false,
+     "campaign": "cloud_key_abuse-1",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 51,
+     "kind": "cloud_key_abuse",
+     "minutes_to_detect": 0,
+     "minutes_to_person": 822,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "discovery",
+      "exfil"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": false,
+     "campaign": "cloud_key_abuse-2",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 155,
+     "kind": "cloud_key_abuse",
+     "minutes_to_detect": 0,
+     "minutes_to_person": 989,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "discovery",
+      "exfil"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": false,
+     "campaign": "cloud_key_abuse-3",
+     "caught": false,
+     "detected": true,
+     "impact_minutes": 119,
+     "kind": "cloud_key_abuse",
+     "minutes_to_detect": 0,
+     "minutes_to_person": null,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "discovery",
+      "exfil"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": false,
+     "campaign": "endpoint_intrusion-0",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 244,
+     "kind": "endpoint_intrusion",
+     "minutes_to_detect": 244,
+     "minutes_to_person": 916,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "impact"
+     ],
+     "variant": true
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": false,
+     "campaign": "endpoint_intrusion-1",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 286,
+     "kind": "endpoint_intrusion",
+     "minutes_to_detect": 286,
+     "minutes_to_person": 892,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "impact"
+     ],
+     "variant": true
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": false,
+     "campaign": "endpoint_intrusion-2",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 107,
+     "kind": "endpoint_intrusion",
+     "minutes_to_detect": 0,
+     "minutes_to_person": 779,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "execution",
+      "impact"
+     ],
+     "variant": false
+    },
+    {
+     "attack_alerts_closed_by_model": 0,
+     "before_impact": false,
+     "campaign": "endpoint_intrusion-3",
+     "caught": true,
+     "detected": true,
+     "impact_minutes": 196,
+     "kind": "endpoint_intrusion",
+     "minutes_to_detect": 0,
+     "minutes_to_person": 910,
+     "prevented_by_hold": false,
+     "stages_seen": [
+      "execution",
+      "impact"
+     ],
+     "variant": false
+    }
+   ],
+   "cases_per_day": 85.4,
+   "caught": 17,
+   "closed_by_model": 0,
+   "closed_on_unsupported_report": 0,
+   "detected": 19,
+   "failed_checks": 0,
+   "holds": 0,
+   "items_per_day": 85.4,
+   "median_minutes_to_person": 779.0,
+   "name": "siem_basic",
+   "night_pages": 0,
+   "pages_per_day": 0.0,
+   "playbook_steps": {
+    "deactivate_access_key": 3,
+    "isolate_host": 4,
+    "lock_account": 13,
+    "require_mfa_reenrol": 6,
+    "revert_snapshot_sharing": 3,
+    "revoke_sessions": 6,
+    "rotate_credentials": 4,
+    "suspend_external_links": 13
+   },
+   "precision": 0.037,
+   "reports": 0,
+   "unsupported_claims_relied_on": 0
+  }
+ },
+ "detections": [
+  {
+   "alerts": 1,
+   "backtest_per_day": 0.0,
+   "budget": 0.2,
+   "campaigns": 1,
+   "examples_pass": true,
+   "id": "agent_large_external_send",
+   "kind": "match",
+   "precision": 1.0,
+   "severity": "medium",
+   "source": "agent",
+   "technique": "T1567",
+   "title": "An agent sends an unusually large payload outside the company",
+   "true": 1,
+   "within_budget": true
+  },
+  {
+   "alerts": 4,
+   "backtest_per_day": 0.0,
+   "budget": 0.05,
+   "campaigns": 4,
+   "examples_pass": true,
+   "id": "agent_untrusted_instruction_egress",
+   "kind": "new_value",
+   "precision": 1.0,
+   "severity": "critical",
+   "source": "agent",
+   "technique": "AML.T0051",
+   "title": "An agent sends to a new destination on instructions from content it read",
+   "true": 4,
+   "within_budget": true
+  },
+  {
+   "alerts": 4,
+   "backtest_per_day": 0.0,
+   "budget": 0.1,
+   "campaigns": 4,
+   "examples_pass": true,
+   "id": "cloud_ci_key_recon",
+   "kind": "threshold",
+   "precision": 1.0,
+   "severity": "high",
+   "source": "cloud",
+   "technique": "T1580",
+   "title": "A CI key enumerates the account",
+   "true": 4,
+   "within_budget": true
+  },
+  {
+   "alerts": 4,
+   "backtest_per_day": 0.0,
+   "budget": 0.1,
+   "campaigns": 4,
+   "examples_pass": true,
+   "id": "cloud_key_enumeration_call",
+   "kind": "match",
+   "precision": 1.0,
+   "severity": "medium",
+   "source": "cloud",
+   "technique": "T1580",
+   "title": "A CI key lists or describes account resources",
+   "true": 4,
+   "within_budget": true
+  },
+  {
+   "alerts": 6,
+   "backtest_per_day": 0.0,
+   "budget": 0.1,
+   "campaigns": 4,
+   "examples_pass": true,
+   "id": "cloud_key_outside_runners",
+   "kind": "match",
+   "precision": 1.0,
+   "severity": "high",
+   "source": "cloud",
+   "technique": "T1078.004",
+   "title": "A CI key used from outside the build runners and the office",
+   "true": 6,
+   "within_budget": true
+  },
+  {
+   "alerts": 4,
+   "backtest_per_day": 0.0,
+   "budget": 0.05,
+   "campaigns": 4,
+   "examples_pass": true,
+   "id": "cloud_snapshot_shared",
+   "kind": "match",
+   "precision": 1.0,
+   "severity": "critical",
+   "source": "cloud",
+   "technique": "T1537",
+   "title": "A disk snapshot shared with another account",
+   "true": 4,
+   "within_budget": true
+  },
+  {
+   "alerts": 1,
+   "backtest_per_day": 0.0,
+   "budget": 0.2,
+   "campaigns": 1,
+   "examples_pass": true,
+   "id": "edr_copy_to_removable",
+   "kind": "match",
+   "precision": 1.0,
+   "severity": "medium",
+   "source": "edr",
+   "technique": "T1052.001",
+   "title": "A folder copied to removable media",
+   "true": 1,
+   "within_budget": true
+  },
+  {
+   "alerts": 2,
+   "backtest_per_day": 0.0,
+   "budget": 0.05,
+   "campaigns": 2,
+   "examples_pass": true,
+   "id": "edr_keychain_dump",
+   "kind": "match",
+   "precision": 1.0,
+   "severity": "critical",
+   "source": "edr",
+   "technique": "T1555.001",
+   "title": "The login keychain dumped in clear text",
+   "true": 2,
+   "within_budget": true
+  },
+  {
+   "alerts": 1,
+   "backtest_per_day": 0.0,
+   "budget": 0.05,
+   "campaigns": 1,
+   "examples_pass": true,
+   "id": "edr_leaver_removable_copy",
+   "kind": "match",
+   "precision": 1.0,
+   "severity": "critical",
+   "source": "edr",
+   "technique": "T1052.001",
+   "title": "Someone serving notice copies files to removable media",
+   "true": 1,
+   "within_budget": true
+  },
+  {
+   "alerts": 4,
+   "backtest_per_day": 0.0,
+   "budget": 0.05,
+   "campaigns": 4,
+   "examples_pass": true,
+   "id": "edr_mass_rename",
+   "kind": "match",
+   "precision": 1.0,
+   "severity": "critical",
+   "source": "edr",
+   "technique": "T1486",
+   "title": "Files renamed to an encrypted extension",
+   "true": 4,
+   "within_budget": true
+  },
+  {
+   "alerts": 2,
+   "backtest_per_day": 0.0,
+   "budget": 0.05,
+   "campaigns": 2,
+   "examples_pass": true,
+   "id": "edr_pipe_to_shell_from_mail",
+   "kind": "match",
+   "precision": 1.0,
+   "severity": "critical",
+   "source": "edr",
+   "technique": "T1059.004",
+   "title": "A mail or browser process downloads a script and pipes it to a shell",
+   "true": 2,
+   "within_budget": true
+  },
+  {
+   "alerts": 4,
+   "backtest_per_day": 0.0,
+   "budget": 0.1,
+   "campaigns": 4,
+   "examples_pass": true,
+   "id": "edr_ssh_into_colleague_device",
+   "kind": "match",
+   "precision": 1.0,
+   "severity": "high",
+   "source": "edr",
+   "technique": "T1021.004",
+   "title": "An account logs in over SSH to a colleague's laptop",
+   "true": 4,
+   "within_budget": true
+  },
+  {
+   "alerts": 2,
+   "backtest_per_day": 0.0,
+   "budget": 0.1,
+   "campaigns": 2,
+   "examples_pass": true,
+   "id": "idp_login_after_mfa_burst",
+   "kind": "sequence",
+   "precision": 1.0,
+   "severity": "critical",
+   "source": "idp",
+   "technique": "T1078",
+   "title": "A login succeeds from the address that was just pushing MFA requests",
+   "true": 2,
+   "within_budget": true
+  },
+  {
+   "alerts": 1,
+   "backtest_per_day": 0.0,
+   "budget": 0.2,
+   "campaigns": 1,
+   "examples_pass": true,
+   "id": "idp_mfa_fatigue",
+   "kind": "threshold",
+   "precision": 1.0,
+   "severity": "high",
+   "source": "idp",
+   "technique": "T1621",
+   "title": "Many MFA pushes denied in a few minutes",
+   "true": 1,
+   "within_budget": true
+  },
+  {
+   "alerts": 27,
+   "backtest_per_day": 1.0,
+   "budget": 2.0,
+   "campaigns": 2,
+   "examples_pass": true,
+   "id": "idp_new_country",
+   "kind": "new_value",
+   "precision": 0.07,
+   "severity": "low",
+   "source": "idp",
+   "technique": "T1078",
+   "title": "A login from a country this person has not logged in from before",
+   "true": 2,
+   "within_budget": true
+  },
+  {
+   "alerts": 2,
+   "backtest_per_day": 0.0,
+   "budget": 0.1,
+   "campaigns": 2,
+   "examples_pass": true,
+   "id": "idp_risky_oauth_grant",
+   "kind": "match",
+   "precision": 1.0,
+   "severity": "high",
+   "source": "idp",
+   "technique": "T1528",
+   "title": "Consent to an unknown app that can read mail or files",
+   "true": 2,
+   "within_budget": true
+  },
+  {
+   "alerts": 0,
+   "backtest_per_day": 0.0,
+   "budget": 0.1,
+   "campaigns": 0,
+   "examples_pass": true,
+   "id": "idp_session_replay",
+   "kind": "match",
+   "precision": null,
+   "severity": "high",
+   "source": "idp",
+   "technique": "T1550.004",
+   "title": "A session token replayed, or used from a scripting client",
+   "true": 0,
+   "within_budget": true
+  },
+  {
+   "alerts": 7,
+   "backtest_per_day": 0.0,
+   "budget": 0.2,
+   "campaigns": 2,
+   "examples_pass": true,
+   "id": "saas_app_mass_read",
+   "kind": "threshold",
+   "precision": 1.0,
+   "severity": "high",
+   "source": "saas",
+   "technique": "T1550.001",
+   "title": "An app reads many documents on a person's behalf in an hour",
+   "true": 7,
+   "within_budget": true
+  },
+  {
+   "alerts": 8,
+   "backtest_per_day": 0.0,
+   "budget": 0.05,
+   "campaigns": 8,
+   "examples_pass": true,
+   "id": "saas_bulk_export",
+   "kind": "match",
+   "precision": 1.0,
+   "severity": "critical",
+   "source": "saas",
+   "technique": "T1567",
+   "title": "A whole workspace exported to an outside domain",
+   "true": 8,
+   "within_budget": true
+  },
+  {
+   "alerts": 6,
+   "backtest_per_day": 0.0,
+   "budget": 0.2,
+   "campaigns": 4,
+   "examples_pass": true,
+   "id": "saas_leaver_downloads",
+   "kind": "threshold",
+   "precision": 1.0,
+   "severity": "high",
+   "source": "saas",
+   "technique": "T1530",
+   "title": "Someone serving notice downloads documents in volume",
+   "true": 6,
+   "within_budget": true
+  },
+  {
+   "alerts": 19,
+   "backtest_per_day": 0.0,
+   "budget": 0.2,
+   "campaigns": 7,
+   "examples_pass": true,
+   "id": "saas_mass_download",
+   "kind": "threshold",
+   "precision": 1.0,
+   "severity": "medium",
+   "source": "saas",
+   "technique": "T1530",
+   "title": "A person downloads many documents in two hours",
+   "true": 19,
+   "within_budget": true
+  },
+  {
+   "alerts": 4,
+   "backtest_per_day": 0.0,
+   "budget": 0.2,
+   "campaigns": 4,
+   "examples_pass": true,
+   "id": "saas_new_app_reads",
+   "kind": "new_value",
+   "precision": 1.0,
+   "severity": "medium",
+   "source": "saas",
+   "technique": "T1550.001",
+   "title": "An unapproved app starts reading documents for a person",
+   "true": 4,
+   "within_budget": true
+  },
+  {
+   "alerts": 19,
+   "backtest_per_day": 1.29,
+   "budget": 1.0,
+   "campaigns": 1,
+   "examples_pass": true,
+   "id": "saas_new_download_client",
+   "kind": "new_value",
+   "precision": 0.05,
+   "severity": "medium",
+   "source": "saas",
+   "technique": "T1530",
+   "title": "Documents downloaded through a client this person has never used",
+   "true": 1,
+   "within_budget": false
+  },
+  {
+   "alerts": 23,
+   "backtest_per_day": 0.71,
+   "budget": 1.5,
+   "campaigns": 3,
+   "examples_pass": true,
+   "id": "saas_share_to_personal",
+   "kind": "match",
+   "precision": 0.13,
+   "severity": "medium",
+   "source": "saas",
+   "technique": "T1567",
+   "title": "A document shared with a personal email domain",
+   "true": 3,
+   "within_budget": true
+  }
+ ],
+ "environment": {
+  "campaigns": 24,
+  "days": 28,
+  "evaluated_days": 14,
+  "events": 211327,
+  "events_by_source": {
+   "agent": 15535,
+   "cloud": 18976,
+   "edr": 26962,
+   "idp": 27232,
+   "saas": 122622
+  },
+  "name": "heldout",
+  "people": 420,
+  "quiet_variants": 10
+ },
+ "example_case": {
+  "alerts": [
+   {
+    "events": 5,
+    "rule": "idp_login_after_mfa_burst",
+    "severity": "critical",
+    "technique": "T1078",
+    "ts": 32439
+   },
+   {
+    "events": 1,
+    "rule": "idp_new_country",
+    "severity": "low",
+    "technique": "T1078",
+    "ts": 32439
+   },
+   {
+    "events": 30,
+    "rule": "saas_mass_download",
+    "severity": "medium",
+    "technique": "T1530",
+    "ts": 32498
+   },
+   {
+    "events": 50,
+    "rule": "saas_mass_download",
+    "severity": "medium",
+    "technique": "T1530",
+    "ts": 32558
+   },
+   {
+    "events": 1,
+    "rule": "saas_bulk_export",
+    "severity": "critical",
+    "technique": "T1567",
+    "ts": 32853
+   }
+  ],
+  "campaign": "account_takeover-0",
+  "case": "case-00055",
+  "impact_at": 32853,
+  "person": {
+   "handled_at": 32454,
+   "page": true,
+   "reason": "severity the model may not close",
+   "verdict": "incident"
+  },
+  "playbook": [
+   {
+    "action": "revoke_sessions",
+    "status": "dry-run",
+    "system": "identity provider",
+    "target": "ben.iqbal166@corp.example"
+   },
+   {
+    "action": "require_mfa_reenrol",
+    "status": "dry-run",
+    "system": "identity provider",
+    "target": "ben.iqbal166@corp.example"
+   }
+  ],
+  "report": {
+   "check_ok": false,
+   "claims": [
+    {
+     "eid": "saas-9247540",
+     "field": "doc_id",
+     "value": "d349"
+    },
+    {
+     "eid": "saas-0209700",
+     "field": "client_id",
+     "value": "web"
+    },
+    {
+     "eid": "saas-0209615",
+     "field": "doc_id",
+     "value": "d3815"
+    },
+    {
+     "eid": "saas-0209626",
+     "field": "action",
+     "value": "doc_download"
+    }
+   ],
+   "escalate": true,
+   "problems": [
+    "saas-9247540: no such event"
+   ]
+  },
+  "start": 32409
+ },
+ "graph": {
+  "events_resolved": {
+   "agent": 1.0,
+   "cloud": 1.0,
+   "edr": 1.0,
+   "idp": 1.0,
+   "saas": 1.0
+  },
+  "identifiers_per_person": 4.3,
+  "renamed_hosts": 26,
+  "renamed_hosts_owner_learned": 17
+ },
+ "paired_before_impact": {
+  "platform_vs_detection_as_code": {
+   "difference": 0.208,
+   "high": 0.375,
+   "low": 0.042
+  },
+  "platform_vs_llm_triage": {
+   "difference": 0.292,
+   "high": 0.458,
+   "low": 0.125
+  },
+  "platform_vs_siem_basic": {
+   "difference": 0.917,
+   "high": 1.0,
+   "low": 0.833
+  }
+ }
+}

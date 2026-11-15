@@ -17,14 +17,14 @@ truth; the detections, the graph and the routing never see it.
 | Design | Caught | Stopped before impact | Median time to a person | Cases a day for people | Pages a day | Precision | Attack alerts the model closed | Unchecked claims relied on |
 |---|--:|--:|--:|--:|--:|--:|--:|--:|
 | SIEM defaults, every alert to a person | 20 of 24 | 7 of 24 | 8.4 h | 64.6 | 0.0 | 5% | 0 | 0 |
-| Reviewed, backtested detections on the context graph | 24 of 24 | 17 of 24 | 51 min | 11.1 | 2.29 | 78% | 0 | 0 |
-| + a model closes alerts it reads on their own | 24 of 24 | 18 of 24 | 51 min | 8.4 | 1.93 | 95% | 11 | 26 |
-| **+ cases, context, checked claims, held agent sends** | 24 of 24 | 23 of 24 | 31 min | 2.3 | 0.43 | 78% | 0 | 0 |
+| Reviewed, backtested detections on the context graph | 24 of 24 | 18 of 24 | 51 min | 10.4 | 2.29 | 84% | 0 | 0 |
+| + a model closes alerts it reads on their own | 24 of 24 | 18 of 24 | 48 min | 8.2 | 1.93 | 96% | 11 | 25 |
+| **+ cases, context, checked claims, held agent sends** | 24 of 24 | 23 of 24 | 27 min | 2.1 | 0.43 | 83% | 0 | 0 |
 
-The full platform stopped **23 of 24** campaigns before impact while asking people to read **2.3 cases a day**,
-against 17 of 24 and 11.1 a day when every reviewed detection goes to a person, and 7 of 24 and 64.6
-a day on SIEM defaults. On the same campaigns, the gain over detection as code is 25.0% of campaigns
-(90% interval 12.5% to 41.7%), and over the model alone
+The full platform stopped **23 of 24** campaigns before impact while asking people to read **2.1 cases a day**,
+against 18 of 24 and 10.4 a day when every reviewed detection goes to a person, and 7 of 24 and 64.6
+a day on SIEM defaults. On the same campaigns, the gain over detection as code is 20.8% of campaigns
+(90% interval 8.3% to 37.5%), and over the model alone
 20.8% (8.3% to 33.3%).
 
 Where the gain comes from, by attack:
@@ -35,16 +35,16 @@ Where the gain comes from, by attack:
 | Insider leaving with data | 1/4 | 3/4 | 3/4 | 3/4 | 11.5 h |
 | Consent phishing app | 4/4 | 4/4 | 4/4 | 4/4 | 11.8 h |
 | Prompt injection of a productivity agent | 0/4 | 0/4 | 0/4 | 4/4 | 5 min |
-| Leaked CI key | 0/4 | 2/4 | 3/4 | 4/4 | 2.9 h |
+| Leaked CI key | 0/4 | 3/4 | 3/4 | 4/4 | 2.9 h |
 | Laptop intrusion to ransomware | 0/4 | 4/4 | 4/4 | 4/4 | 3.3 h |
 
 - Prompt injection of a productivity agent reaches its impact within minutes of the injected instruction. No queue is
   fast enough; holding the agent's send to a new destination, which is reversible, is the only control that stops it.
 - A model reading alerts on their own closed 11 alerts from real attacks and relied on
-  26 claims that cite events that do not exist or misquote them. With the person's context, the code rule that it
+  25 claims that cite events that do not exist or misquote them. With the person's context, the code rule that it
   never closes a critical alert, and the claim checker, the platform closed 0 and relied on 0.
-- Reading drops in two steps: 11.1 alerts a day group into 4.1 cases a day on one person each, and the
-  model closes most of the benign ones, leaving 2.3 for people.
+- Reading drops in two steps: 10.4 alerts a day group into 3.3 cases a day on one person each, and the
+  model closes most of the benign ones, leaving 2.1 for people.
 
 ## The claim checker
 
@@ -53,8 +53,8 @@ against the event store before the verdict counts. A report that fails goes to a
 
 |  | Reports written | Failed the check | Escalations resting on an unsupported claim | Closures resting on an unsupported claim |
 |---|--:|--:|--:|--:|
-| Model alone | 156 | not checked | 21 | 5 |
-| Platform | 58 | 5 | 0 | 0 |
+| Model alone | 145 | not checked | 21 | 4 |
+| Platform | 47 | 4 | 0 | 0 |
 
 The checker verifies citations, not reasoning: a report that quotes real events and draws the wrong conclusion passes.
 That is why criticals cannot be closed by the model at all.
@@ -64,7 +64,8 @@ That is why criticals cannot be closed by the model at all.
 Each detection is a YAML file with its condition, severity, ATT&CK or ATLAS technique, examples it must fire on and
 stay quiet on, and a false-positive budget. CI lints every file (`scripts/check_detections.py`); the evaluation replays
 each one on a week of attack-free history after a week of learning, and the gate fails any detection over budget.
-Two first drafts failed that backtest and were rewritten; their history is in the files' comments.
+Two first drafts failed that backtest on dev and one more on the held-out company; each was rewritten, not given a
+bigger budget, and its history is in the file's comments.
 
 | Detection | Kind | Source | Technique | Severity | Alerts | From attacks | Campaigns | False alerts a day in backtest | Budget | CI |
 |---|---|---|---|---|--:|--:|--:|--:|--:|--:|
@@ -90,7 +91,7 @@ Two first drafts failed that backtest and were rewritten; their history is in th
 | [`saas_leaver_downloads`](detections/rules/saas_leaver_downloads.yaml) | threshold | saas | T1530 | high | 6 | 6 | 4 | 0.0 | 0.2 | pass |
 | [`saas_mass_download`](detections/rules/saas_mass_download.yaml) | threshold | saas | T1530 | medium | 34 | 34 | 7 | 0.0 | 0.2 | pass |
 | [`saas_new_app_reads`](detections/rules/saas_new_app_reads.yaml) | new_value | saas | T1550.001 | medium | 4 | 4 | 4 | 0.0 | 0.2 | pass |
-| [`saas_new_download_client`](detections/rules/saas_new_download_client.yaml) | new_value | saas | T1530 | medium | 12 | 1 | 1 | 0.71 | 1.0 | pass |
+| [`saas_new_download_client`](detections/rules/saas_new_download_client.yaml) | new_value | saas | T1530 | high | 1 | 1 | 1 | 0.0 | 0.2 | pass |
 | [`saas_share_to_personal`](detections/rules/saas_share_to_personal.yaml) | match | saas | T1567 | medium | 14 | 3 | 3 | 0.14 | 1.5 | pass |
 
 ## ATT&CK coverage
@@ -136,7 +137,7 @@ downloading in volume.
 
 ## One case end to end
 
-`account_takeover-0` became `case-00025`. Minutes from the attacker's first step:
+`account_takeover-0` became `case-00021`. Minutes from the attacker's first step:
 
 - **30 min** `idp_login_after_mfa_burst` fires (critical, T1078) on 5 events
 - **30 min** `idp_new_country` fires (low, T1078) on 1 event
@@ -151,7 +152,18 @@ Containment planned at confirmation, in dry run: `revoke_sessions` on identity p
 
 ## Held-out environment
 
-Not run yet. `python scripts/evaluate.py --heldout` runs it once and writes `config/heldout.lock`.
+Run once, with the code and settings the dev environment ended on (`config/heldout.lock`): 420 people, more
+contractors and renamed laptops, 10 of 24 campaigns in their quiet variant, and a model that fabricates more.
+
+| Design | Caught | Stopped before impact | Cases a day | Attack alerts the model closed | Unchecked claims relied on |
+|---|--:|--:|--:|--:|--:|
+| SIEM defaults, every alert to a person | 17 of 24 | 1 of 24 (dev 7) | 85.4 | 0 | 0 |
+| Reviewed, backtested detections on the context graph | 24 of 24 | 18 of 24 (dev 18) | 11.1 | 0 | 0 |
+| + a model closes alerts it reads on their own | 23 of 24 | 16 of 24 (dev 18) | 6.5 | 15 | 18 |
+| + cases, context, checked claims, held agent sends | 23 of 24 | 23 of 24 (dev 23) | 2.6 | 0 | 0 |
+
+The platform did not stop 1 campaign before impact: `endpoint_intrusion-3`.
+What that showed and what changed on dev afterwards is in [docs/heldout.md](docs/heldout.md). `config/gate.toml` was not moved.
 
 ## How it works
 

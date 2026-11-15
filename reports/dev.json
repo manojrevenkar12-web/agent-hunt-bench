@@ -181,11 +181,11 @@
  ],
  "designs": {
   "detection_as_code": {
-   "alerts": 156,
-   "alerts_per_day": 11.1,
-   "analyst_hours_per_day": 2.2,
+   "alerts": 145,
+   "alerts_per_day": 10.4,
+   "analyst_hours_per_day": 2.1,
    "attack_alerts_closed_by_model": 0,
-   "before_impact": 17,
+   "before_impact": 18,
    "benign_holds": 0,
    "campaigns": [
     {
@@ -254,7 +254,7 @@
      "impact_minutes": 494,
      "kind": "account_takeover",
      "minutes_to_detect": 86,
-     "minutes_to_person": 188,
+     "minutes_to_person": 176,
      "prevented_by_hold": false,
      "stages_seen": [
       "collection",
@@ -288,7 +288,7 @@
      "impact_minutes": 642,
      "kind": "insider_exfil",
      "minutes_to_detect": 22,
-     "minutes_to_person": 504,
+     "minutes_to_person": 498,
      "prevented_by_hold": false,
      "stages_seen": [
       "collection",
@@ -305,7 +305,7 @@
      "impact_minutes": 342,
      "kind": "insider_exfil",
      "minutes_to_detect": 22,
-     "minutes_to_person": 510,
+     "minutes_to_person": 504,
      "prevented_by_hold": false,
      "stages_seen": [
       "collection",
@@ -357,7 +357,7 @@
      "impact_minutes": 780,
      "kind": "oauth_consent",
      "minutes_to_detect": 60,
-     "minutes_to_person": 120,
+     "minutes_to_person": 114,
      "prevented_by_hold": false,
      "stages_seen": [
       "collection",
@@ -374,7 +374,7 @@
      "impact_minutes": 593,
      "kind": "oauth_consent",
      "minutes_to_detect": 0,
-     "minutes_to_person": 72,
+     "minutes_to_person": 60,
      "prevented_by_hold": false,
      "stages_seen": [
       "collection",
@@ -474,7 +474,7 @@
      "impact_minutes": 75,
      "kind": "cloud_key_abuse",
      "minutes_to_detect": 2,
-     "minutes_to_person": 90,
+     "minutes_to_person": 86,
      "prevented_by_hold": false,
      "stages_seen": [
       "discovery",
@@ -484,14 +484,14 @@
     },
     {
      "attack_alerts_closed_by_model": 0,
-     "before_impact": false,
+     "before_impact": true,
      "campaign": "cloud_key_abuse-1",
      "caught": true,
      "detected": true,
      "impact_minutes": 70,
      "kind": "cloud_key_abuse",
      "minutes_to_detect": 0,
-     "minutes_to_person": 78,
+     "minutes_to_person": 66,
      "prevented_by_hold": false,
      "stages_seen": [
       "discovery",
@@ -508,7 +508,7 @@
      "impact_minutes": 176,
      "kind": "cloud_key_abuse",
      "minutes_to_detect": 0,
-     "minutes_to_person": 84,
+     "minutes_to_person": 72,
      "prevented_by_hold": false,
      "stages_seen": [
       "discovery",
@@ -610,14 +610,14 @@
      "variant": false
     }
    ],
-   "cases_per_day": 11.1,
+   "cases_per_day": 10.4,
    "caught": 24,
    "closed_by_model": 0,
    "closed_on_unsupported_report": 0,
    "detected": 24,
    "failed_checks": 0,
    "holds": 0,
-   "items_per_day": 11.1,
+   "items_per_day": 10.4,
    "median_minutes_to_person": 51.0,
    "name": "detection_as_code",
    "night_pages": 5,
@@ -634,14 +634,14 @@
     "rotate_credentials": 17,
     "suspend_external_links": 64
    },
-   "precision": 0.782,
+   "precision": 0.841,
    "reports": 0,
    "unsupported_claims_relied_on": 0
   },
   "llm_triage": {
-   "alerts": 156,
-   "alerts_per_day": 11.1,
-   "analyst_hours_per_day": 1.7,
+   "alerts": 145,
+   "alerts_per_day": 10.4,
+   "analyst_hours_per_day": 1.6,
    "attack_alerts_closed_by_model": 11,
    "before_impact": 18,
    "benign_holds": 0,
@@ -712,7 +712,7 @@
      "impact_minutes": 494,
      "kind": "account_takeover",
      "minutes_to_detect": 86,
-     "minutes_to_person": 176,
+     "minutes_to_person": 170,
      "prevented_by_hold": false,
      "stages_seen": [
       "collection",
@@ -832,7 +832,7 @@
      "impact_minutes": 593,
      "kind": "oauth_consent",
      "minutes_to_detect": 0,
-     "minutes_to_person": 60,
+     "minutes_to_person": 54,
      "prevented_by_hold": false,
      "stages_seen": [
       "collection",
@@ -949,7 +949,7 @@
      "impact_minutes": 70,
      "kind": "cloud_key_abuse",
      "minutes_to_detect": 0,
-     "minutes_to_person": 54,
+     "minutes_to_person": 48,
      "prevented_by_hold": false,
      "stages_seen": [
       "discovery",
@@ -966,7 +966,7 @@
      "impact_minutes": 176,
      "kind": "cloud_key_abuse",
      "minutes_to_detect": 0,
-     "minutes_to_person": 72,
+     "minutes_to_person": 66,
      "prevented_by_hold": false,
      "stages_seen": [
       "discovery",
@@ -1068,15 +1068,15 @@
      "variant": false
     }
    ],
-   "cases_per_day": 11.1,
+   "cases_per_day": 10.4,
    "caught": 24,
-   "closed_by_model": 39,
-   "closed_on_unsupported_report": 5,
+   "closed_by_model": 30,
+   "closed_on_unsupported_report": 4,
    "detected": 24,
    "failed_checks": 0,
    "holds": 0,
-   "items_per_day": 8.4,
-   "median_minutes_to_person": 51.0,
+   "items_per_day": 8.2,
+   "median_minutes_to_person": 48.0,
    "name": "llm_triage",
    "night_pages": 3,
    "pages_per_day": 1.93,
@@ -1092,14 +1092,14 @@
     "rotate_credentials": 16,
     "suspend_external_links": 60
    },
-   "precision": 0.949,
-   "reports": 156,
+   "precision": 0.965,
+   "reports": 145,
    "unsupported_claims_relied_on": 21
   },
   "platform": {
-   "alerts": 156,
-   "alerts_per_day": 11.1,
-   "analyst_hours_per_day": 0.5,
+   "alerts": 145,
+   "alerts_per_day": 10.4,
+   "analyst_hours_per_day": 0.4,
    "attack_alerts_closed_by_model": 0,
    "before_impact": 23,
    "benign_holds": 0,
@@ -1132,7 +1132,7 @@
      "impact_minutes": 284,
      "kind": "account_takeover",
      "minutes_to_detect": 8,
-     "minutes_to_person": 38,
+     "minutes_to_person": 32,
      "prevented_by_hold": false,
      "stages_seen": [
       "access",
@@ -1170,7 +1170,7 @@
      "impact_minutes": 494,
      "kind": "account_takeover",
      "minutes_to_detect": 86,
-     "minutes_to_person": 122,
+     "minutes_to_person": 116,
      "prevented_by_hold": false,
      "stages_seen": [
       "collection",
@@ -1290,7 +1290,7 @@
      "impact_minutes": 593,
      "kind": "oauth_consent",
      "minutes_to_detect": 0,
-     "minutes_to_person": 30,
+     "minutes_to_person": 24,
      "prevented_by_hold": false,
      "stages_seen": [
       "collection",
@@ -1407,7 +1407,7 @@
      "impact_minutes": 70,
      "kind": "cloud_key_abuse",
      "minutes_to_detect": 0,
-     "minutes_to_person": 36,
+     "minutes_to_person": 30,
      "prevented_by_hold": false,
      "stages_seen": [
       "discovery",
@@ -1424,7 +1424,7 @@
      "impact_minutes": 176,
      "kind": "cloud_key_abuse",
      "minutes_to_detect": 0,
-     "minutes_to_person": 30,
+     "minutes_to_person": 24,
      "prevented_by_hold": false,
      "stages_seen": [
       "discovery",
@@ -1526,15 +1526,15 @@
      "variant": false
     }
    ],
-   "cases_per_day": 4.1,
+   "cases_per_day": 3.3,
    "caught": 24,
-   "closed_by_model": 26,
+   "closed_by_model": 17,
    "closed_on_unsupported_report": 0,
    "detected": 24,
-   "failed_checks": 5,
+   "failed_checks": 4,
    "holds": 4,
-   "items_per_day": 2.3,
-   "median_minutes_to_person": 31.0,
+   "items_per_day": 2.1,
+   "median_minutes_to_person": 27.0,
    "name": "platform",
    "night_pages": 0,
    "pages_per_day": 0.43,
@@ -1550,8 +1550,8 @@
     "rotate_credentials": 4,
     "suspend_external_links": 7
    },
-   "precision": 0.781,
-   "reports": 58,
+   "precision": 0.833,
+   "reports": 47,
    "unsupported_claims_relied_on": 0
   },
   "siem_basic": {
@@ -2344,18 +2344,18 @@
    "within_budget": true
   },
   {
-   "alerts": 12,
-   "backtest_per_day": 0.71,
-   "budget": 1.0,
+   "alerts": 1,
+   "backtest_per_day": 0.0,
+   "budget": 0.2,
    "campaigns": 1,
    "examples_pass": true,
    "id": "saas_new_download_client",
    "kind": "new_value",
-   "precision": 0.08,
-   "severity": "medium",
+   "precision": 1.0,
+   "severity": "high",
    "source": "saas",
    "technique": "T1530",
-   "title": "Documents downloaded through a client this person has never used",
+   "title": "Someone serving notice starts downloading through a new client",
    "true": 1,
    "within_budget": true
   },
@@ -2480,7 +2480,7 @@
    }
   ],
   "campaign": "account_takeover-0",
-  "case": "case-00025",
+  "case": "case-00021",
   "impact_at": 28381,
   "person": {
    "handled_at": 28223,
@@ -2545,9 +2545,9 @@
  },
  "paired_before_impact": {
   "platform_vs_detection_as_code": {
-   "difference": 0.25,
-   "high": 0.417,
-   "low": 0.125
+   "difference": 0.208,
+   "high": 0.375,
+   "low": 0.083
   },
   "platform_vs_llm_triage": {
    "difference": 0.208,

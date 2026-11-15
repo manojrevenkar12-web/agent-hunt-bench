@@ -263,7 +263,8 @@ That is why criticals cannot be closed by the model at all.
 Each detection is a YAML file with its condition, severity, ATT&CK or ATLAS technique, examples it must fire on and
 stay quiet on, and a false-positive budget. CI lints every file (`scripts/check_detections.py`); the evaluation replays
 each one on a week of attack-free history after a week of learning, and the gate fails any detection over budget.
-Two first drafts failed that backtest and were rewritten; their history is in the files' comments.
+Two first drafts failed that backtest on dev and one more on the held-out company; each was rewritten, not given a
+bigger budget, and its history is in the file's comments.
 
 {detection_rows(r)}
 
