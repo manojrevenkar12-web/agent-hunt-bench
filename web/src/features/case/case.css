@@ -1,0 +1,9 @@
+.case { display: grid; gap: var(--space-4); max-width: var(--measure); }
+.case-steps { list-style: none; margin: 0; padding: 0; display: grid; }
+.case-step { display: grid; grid-template-columns: 5rem minmax(0, 1fr); gap: var(--space-3); padding: var(--space-2) 0 var(--space-2) var(--space-3); border-left: 2px solid var(--rule); }
+.case-step.person { border-left-color: var(--stopped); font-weight: 600; }
+.case-step.impact { border-left-color: var(--late); }
+.case-at { color: var(--ink-soft); }
+.case-toggle { justify-self: start; border: 1px solid var(--rule); background: transparent; padding: var(--space-2) var(--space-3); border-radius: var(--radius-control); cursor: pointer; }
+.case-detail { overflow: hidden; display: grid; gap: var(--space-2); }
+.case-detail ul { margin: 0; padding-left: var(--space-5); }

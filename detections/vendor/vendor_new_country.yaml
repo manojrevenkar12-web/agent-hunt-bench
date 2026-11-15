@@ -1,0 +1,9 @@
+id: vendor_new_country
+title: Login from new country
+severity: medium
+technique: T1078
+kind: new_value
+source: idp
+where: {event: login_success}
+field: geo
+examples: {hit: [[{event: login_success, geo: DE}, {event: login_success, geo: RU}]], miss: [[{event: login_success, geo: DE}, {event: login_success, geo: DE}]]}

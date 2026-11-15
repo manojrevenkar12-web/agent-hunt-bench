@@ -1,0 +1,12 @@
+id: idp_new_country
+title: A login from a country this person has not logged in from before
+severity: low
+technique: T1078
+kind: new_value
+source: idp
+where: {event: {in: [login_success, session_reuse]}}
+field: geo
+budget_per_day: 2.0
+examples:
+  hit: [[{event: login_success, geo: DE, ts: 0}, {event: login_success, geo: BR, ts: 10}]]
+  miss: [[{event: login_success, geo: DE, ts: 0}, {event: login_success, geo: DE, ts: 10}]]

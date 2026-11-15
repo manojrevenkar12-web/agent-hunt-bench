@@ -1,0 +1,11 @@
+id: edr_copy_to_removable
+title: A folder copied to removable media
+severity: medium
+technique: T1052.001
+kind: match
+source: edr
+where: {process: {in: [cp, rsync, ditto]}, cmdline: {contains_any: $removable_media}}
+budget_per_day: 0.2
+examples:
+  hit: [{process: cp, cmdline: "cp -r ~/Drive /Volumes/USB-STICK/"}]
+  miss: [{process: cp, cmdline: "cp a.txt b.txt"}]

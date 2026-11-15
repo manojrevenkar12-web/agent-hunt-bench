@@ -1,0 +1,8 @@
+id: vendor_oauth_grant
+title: OAuth application consent
+severity: medium
+technique: T1528
+kind: match
+source: idp
+where: {event: oauth_grant}
+examples: {hit: [{event: oauth_grant, app: zoom}], miss: [{event: login_success}]}

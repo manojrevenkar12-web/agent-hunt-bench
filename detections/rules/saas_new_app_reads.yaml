@@ -1,0 +1,14 @@
+# Added after the dev run showed the quiet consent-phishing variant (harmless-sounding scopes, slow reads) seen only at
+# the export. An app outside the approved list reading documents for a person is worth a look on its first read.
+id: saas_new_app_reads
+title: An unapproved app starts reading documents for a person
+severity: medium
+technique: T1550.001
+kind: new_value
+source: saas
+where: {client_id: {not_in: $known_apps}, action: {in: [doc_view, doc_download]}}
+field: client_id
+budget_per_day: 0.2
+examples:
+  hit: [[{client_id: web, action: doc_view}, {client_id: pdf-tools-7, action: doc_view}]]
+  miss: [[{client_id: web, action: doc_view}, {client_id: drive-sync, action: doc_download}]]

@@ -1,0 +1,14 @@
+# The agent sends data somewhere this person's agent has never sent to, on instructions that came from content it read
+# rather than from the person. This is the one detection allowed to act before a person looks: the send is held.
+id: agent_untrusted_instruction_egress
+title: An agent sends to a new destination on instructions from content it read
+severity: critical
+technique: AML.T0051
+kind: new_value
+source: agent
+where: {action: send, instruction_source: {ne: user}, destination: {not_in: $customer_domains}}
+field: destination
+budget_per_day: 0.05
+examples:
+  hit: [[{action: send, instruction_source: user, destination: acme.com}, {action: send, instruction_source: document, destination: collector-relay.net}]]
+  miss: [[{action: send, instruction_source: document, destination: acme.com}], [{action: send, instruction_source: user, destination: newcustomer.com}]]

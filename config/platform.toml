@@ -1,0 +1,55 @@
+# Settings the platform reads. Nothing here describes the environment's truth.
+
+[detect]
+rules = "detections/rules"          # the team's detections, reviewed and backtested in CI
+vendor_rules = "detections/vendor"  # the defaults a SIEM ships with, for comparison
+learn_days = 14                     # history new-value detections learn from before they fire
+
+[backtest]                          # every rule is replayed on attack-free history before it merges
+learn_days = 7
+test_days = 7
+
+[cases]
+window_hours = 24                   # alerts on one person within this window are one case
+
+[triage]
+never_close = ["critical"]          # the model may escalate these but never close them
+evidence_events = 30                # events from the case put in front of the model
+page = ["critical"]                 # severities that page the on-call engineer instead of waiting in the queue
+
+[respond]
+dry_run = true                      # playbooks print the calls they would make unless run with --execute and an approver
+inline_hold = ["agent_untrusted_instruction_egress"]   # the only detections allowed to act before a person: holding an agent's send is reversible
+
+[allow]
+known_apps = ["slack", "zoom", "notion", "figma", "salesforce", "github", "web", "mobile", "drive-sync"]
+customer_domains = ["acme.com", "globex.io", "initech.de", "umbrella.eu", "hooli.com", "stark.co"]
+personal_domains = ["gmail.com", "outlook.com", "proton.me", "icloud.com"]
+corp_prefixes = ["10."]
+key_networks = ["10.", "34."]        # the office and the build runners' ranges
+removable_media = ["/Volumes/"]
+
+# The four designs compared on the same environment. Each adds one thing to the one before it.
+[designs.siem_basic]
+rules = "vendor"           # the defaults a SIEM ships with
+graph = false              # events grouped by whatever identifier each source carries
+cases = false
+model = "none"
+[designs.detection_as_code]
+rules = "team"             # reviewed, tested and backtested detections
+graph = true
+cases = false
+model = "none"
+[designs.llm_triage]
+rules = "team"
+graph = true
+cases = false
+model = "alert_only"       # the model reads each alert on its own and its verdict stands
+[designs.platform]
+rules = "team"
+graph = true
+cases = true               # alerts on one person grouped into a case
+model = "with_context"     # the model reads the case with the person's context; code checks its claims
+check_claims = true
+never_close = true
+inline_hold = true

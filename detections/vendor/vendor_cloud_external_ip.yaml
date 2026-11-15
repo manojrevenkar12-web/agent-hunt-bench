@@ -1,0 +1,9 @@
+id: vendor_cloud_external_ip
+title: Cloud API call from outside corporate network
+severity: low
+technique: T1078.004
+kind: match
+source: cloud
+where: {src_ip: {not_prefix_in: $corp_prefixes}}
+cooldown_min: 120
+examples: {hit: [{src_ip: 91.1.1.1}], miss: [{src_ip: 10.1.1.1}]}

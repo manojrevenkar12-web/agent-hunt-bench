@@ -1,0 +1,8 @@
+id: vendor_suspicious_shell
+title: Suspicious shell command
+severity: high
+technique: T1059
+kind: match
+source: edr
+where: {cmdline: {regex: "curl .*\\|\\s*(ba)?sh|nc -l|base64 -d|dump-keychain|\\.locked"}}
+examples: {hit: [{cmdline: "nc -l 8080"}], miss: [{cmdline: "ls"}]}

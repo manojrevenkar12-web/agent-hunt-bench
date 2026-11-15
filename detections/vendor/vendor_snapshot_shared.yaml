@@ -1,0 +1,8 @@
+id: vendor_snapshot_shared
+title: Snapshot permissions modified
+severity: high
+technique: T1537
+kind: match
+source: cloud
+where: {event_name: ModifySnapshotAttribute}
+examples: {hit: [{event_name: ModifySnapshotAttribute}], miss: [{event_name: GetObject}]}

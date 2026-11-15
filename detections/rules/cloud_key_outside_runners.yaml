@@ -1,0 +1,13 @@
+# A first version learned each key's networks (new /16) and failed the backtest at 13 alerts a day: build runners move
+# across the provider's ranges. Keys are only meant to be used from the runners and the office, so that is the rule.
+id: cloud_key_outside_runners
+title: A CI key used from outside the build runners and the office
+severity: high
+technique: T1078.004
+kind: match
+source: cloud
+where: {principal: {regex: "-ci$"}, src_ip: {not_prefix_in: $key_networks}}
+budget_per_day: 0.1
+examples:
+  hit: [{principal: user/x-ci, src_ip: 91.4.4.7}]
+  miss: [{principal: user/x-ci, src_ip: 34.120.9.9}, {principal: AWSReservedSSO_Engineer/a@corp.example, src_ip: 91.4.4.7}]

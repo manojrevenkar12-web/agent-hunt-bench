@@ -1,0 +1,45 @@
+/* Every colour, size and duration the console uses. Components read these, never literals. */
+:root {
+  --paper: #eef1f4;
+  --sheet: #f8fafb;
+  --ink: #14213d;
+  --ink-soft: #4a5872;
+  --rule: #c9d1da;
+  --rule-soft: #dde3ea;
+  --stopped: #1f7a6d;
+  --stopped-wash: #d4ebe6;
+  --late: #b3245a;
+  --late-wash: #f3dbe4;
+  --held: #c98a0b;
+  --held-wash: #f6e8c8;
+  --track: #d6dde5;
+
+  --font: "IBM Plex Sans Condensed", system-ui, sans-serif;
+  --size-0: 0.75rem;
+  --size-1: 0.875rem;
+  --size-2: 1rem;
+  --size-3: 1.25rem;
+  --size-4: 1.75rem;
+  --size-5: 3rem;
+  --leading-tight: 1.15;
+  --leading-body: 1.45;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2.5rem;
+  --space-7: 4rem;
+
+  --lane-height: 1.375rem;
+  --lane-label: 5rem;
+  --marker: 0.625rem;
+  --radius-control: 0.25rem;
+  --radius-sheet: 0.5rem;
+  --measure: 72ch;
+  --skeleton-mid: 82%;
+  --skeleton-short: 64%;
+  --page: 78rem;
+  --focus: 2px solid var(--ink);
+}

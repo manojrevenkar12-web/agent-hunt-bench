@@ -1,0 +1,13 @@
+id: saas_mass_download
+title: A person downloads many documents in two hours
+severity: medium
+technique: T1530
+kind: threshold
+source: saas
+where: {action: doc_download}
+count: 30
+window_min: 120
+budget_per_day: 0.2
+examples:
+  hit: [[{action: doc_download, repeat: 30}]]
+  miss: [[{action: doc_download, ts: 0}, {action: doc_view, ts: 1}]]

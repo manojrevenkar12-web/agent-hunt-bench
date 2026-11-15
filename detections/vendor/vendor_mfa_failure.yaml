@@ -1,0 +1,9 @@
+id: vendor_mfa_failure
+title: MFA failure
+severity: medium
+technique: T1621
+kind: match
+source: idp
+where: {event: mfa_deny}
+cooldown_min: 30
+examples: {hit: [{event: mfa_deny}], miss: [{event: login_success}]}

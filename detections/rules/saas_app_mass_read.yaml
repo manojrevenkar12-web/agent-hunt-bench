@@ -1,0 +1,13 @@
+id: saas_app_mass_read
+title: An app reads many documents on a person's behalf in an hour
+severity: high
+technique: T1550.001
+kind: threshold
+source: saas
+where: {client_id: {not_in: $known_apps}, action: {in: [doc_view, doc_download]}}
+count: 50
+window_min: 60
+budget_per_day: 0.2
+examples:
+  hit: [[{client_id: pdf-tools-1, action: doc_view, repeat: 50}]]
+  miss: [[{client_id: web, action: doc_view, ts: 0}]]

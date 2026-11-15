@@ -1,0 +1,15 @@
+# Needs the context graph: the document log carries a numeric user id, the directory says who is serving notice.
+id: saas_leaver_downloads
+title: Someone serving notice downloads documents in volume
+severity: high
+technique: T1530
+kind: threshold
+source: saas
+where: {action: doc_download, actor_status: leaving}
+count: 12
+window_min: 240
+cooldown_min: 1440
+budget_per_day: 0.2
+examples:
+  hit: [[{action: doc_download, actor_status: leaving, repeat: 12}]]
+  miss: [[{action: doc_download, actor_status: active, repeat: 12}], [{action: doc_download, actor_status: leaving, repeat: 3}]]

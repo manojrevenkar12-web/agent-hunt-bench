@@ -1,0 +1,14 @@
+# Needs the context graph: the endpoint log names the machine and the account, the device inventory (or the machine's
+# history, for renamed machines) names its owner. An account logging in to someone else's laptop is lateral movement.
+# A first version fired on any new SSH target and failed the backtest at 3.3 alerts a day on engineers' build machines.
+id: edr_ssh_into_colleague_device
+title: An account logs in over SSH to a colleague's laptop
+severity: high
+technique: T1021.004
+kind: match
+source: edr
+where: {process: sshd, on_others_device: true}
+budget_per_day: 0.1
+examples:
+  hit: [{process: sshd, hostname: LT-000002, on_others_device: true}]
+  miss: [{process: sshd, hostname: BUILD-01, on_others_device: false}, {process: sshd, hostname: LT-000002}]

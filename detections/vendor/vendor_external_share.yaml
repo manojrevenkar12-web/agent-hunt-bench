@@ -1,0 +1,8 @@
+id: vendor_external_share
+title: File shared externally
+severity: low
+technique: T1567
+kind: match
+source: saas
+where: {action: {in: [share_external, bulk_export]}}
+examples: {hit: [{action: share_external, target_domain: acme.com}], miss: [{action: doc_view}]}

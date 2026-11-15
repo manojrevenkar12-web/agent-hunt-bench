@@ -1,0 +1,11 @@
+id: idp_risky_oauth_grant
+title: Consent to an unknown app that can read mail or files
+severity: high
+technique: T1528
+kind: match
+source: idp
+where: {event: oauth_grant, app: {not_in: $known_apps}, scopes: {contains_any: [mail.read, drive]}}
+budget_per_day: 0.1
+examples:
+  hit: [{event: oauth_grant, app: pdf-tools-123, scopes: drive.readonly mail.read}]
+  miss: [{event: oauth_grant, app: zoom, scopes: profile}]

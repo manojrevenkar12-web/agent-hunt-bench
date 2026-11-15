@@ -1,0 +1,15 @@
+id: idp_login_after_mfa_burst
+title: A login succeeds from the address that was just pushing MFA requests
+severity: critical
+technique: T1078
+kind: sequence
+source: idp
+join: [src_ip]
+window_min: 60
+steps:
+  - {where: {event: mfa_deny}, count: 3}
+  - {where: {event: login_success}}
+budget_per_day: 0.1
+examples:
+  hit: [[{event: mfa_deny, src_ip: 1.2.3.4}, {event: mfa_deny, src_ip: 1.2.3.4}, {event: mfa_deny, src_ip: 1.2.3.4}, {event: login_success, src_ip: 1.2.3.4}]]
+  miss: [[{event: mfa_deny, src_ip: 1.2.3.4}, {event: login_success, src_ip: 10.0.0.1}]]

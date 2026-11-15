@@ -1,0 +1,11 @@
+id: edr_leaver_removable_copy
+title: Someone serving notice copies files to removable media
+severity: critical
+technique: T1052.001
+kind: match
+source: edr
+where: {process: {in: [cp, rsync, ditto]}, cmdline: {contains_any: $removable_media}, actor_status: leaving}
+budget_per_day: 0.05
+examples:
+  hit: [{process: cp, cmdline: "cp -r ~/Drive /Volumes/USB-STICK/", actor_status: leaving}]
+  miss: [{process: cp, cmdline: "cp -r ~/Drive /Volumes/USB-STICK/", actor_status: active}]

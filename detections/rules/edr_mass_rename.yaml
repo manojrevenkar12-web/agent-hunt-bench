@@ -1,0 +1,11 @@
+id: edr_mass_rename
+title: Files renamed to an encrypted extension
+severity: critical
+technique: T1486
+kind: match
+source: edr
+where: {cmdline: {regex: "\\.(locked|enc|crypt)\\b"}}
+budget_per_day: 0.05
+examples:
+  hit: [{process: python3, cmdline: "python3 enc.py --rename *.docx *.locked"}]
+  miss: [{process: python3, cmdline: "python3 manage.py runserver"}]

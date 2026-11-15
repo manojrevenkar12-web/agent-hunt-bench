@@ -1,0 +1,11 @@
+id: agent_large_external_send
+title: An agent sends an unusually large payload outside the company
+severity: medium
+technique: T1567
+kind: match
+source: agent
+where: {action: send, destination: {ne: internal}, bytes: {gt: 30000}}
+budget_per_day: 0.2
+examples:
+  hit: [{action: send, destination: collector-relay.net, bytes: 120000}]
+  miss: [{action: send, destination: acme.com, bytes: 2000}]

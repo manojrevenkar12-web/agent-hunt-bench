@@ -1,0 +1,15 @@
+# Added after the dev run showed the quiet key-abuse variant (two calls, from the runners' own range) seen only when the
+# snapshot was shared. A first version fired on any API new to the key and failed the backtest at 9.3 alerts a day.
+# Build keys read and write objects; they never list or describe the account.
+id: cloud_key_enumeration_call
+title: A CI key lists or describes account resources
+severity: medium
+technique: T1580
+kind: match
+source: cloud
+where: {principal: {regex: "-ci$"}, event_name: {regex: "^(Describe|List)"}}
+cooldown_min: 120
+budget_per_day: 0.1
+examples:
+  hit: [{principal: user/x-ci, event_name: DescribeSnapshots}]
+  miss: [{principal: user/x-ci, event_name: GetObject}, {principal: AWSReservedSSO_Engineer/a@corp.example, event_name: DescribeInstances}]

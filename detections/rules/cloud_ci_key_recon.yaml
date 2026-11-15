@@ -1,0 +1,14 @@
+id: cloud_ci_key_recon
+title: A CI key enumerates the account
+severity: high
+technique: T1580
+kind: threshold
+source: cloud
+where: {principal: {regex: "-ci$"}, event_name: {in: [GetCallerIdentity, ListBuckets, DescribeInstances, ListUsers, DescribeSnapshots, ListRoles]}}
+distinct: event_name
+count: 4
+window_min: 15
+budget_per_day: 0.1
+examples:
+  hit: [[{principal: user/x-ci, event_name: GetCallerIdentity}, {principal: user/x-ci, event_name: ListBuckets}, {principal: user/x-ci, event_name: ListUsers}, {principal: user/x-ci, event_name: DescribeSnapshots}]]
+  miss: [[{principal: user/x-ci, event_name: GetCallerIdentity}, {principal: user/x-ci, event_name: GetObject}, {principal: user/x-ci, event_name: PutObject}]]

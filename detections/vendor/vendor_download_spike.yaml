@@ -1,0 +1,11 @@
+id: vendor_download_spike
+title: Download spike
+severity: medium
+technique: T1530
+kind: threshold
+source: saas
+where: {action: doc_download}
+count: 20
+window_min: 1440
+cooldown_min: 1440
+examples: {hit: [[{action: doc_download, repeat: 20}]], miss: [[{action: doc_download}]]}

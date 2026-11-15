@@ -1,0 +1,13 @@
+id: idp_mfa_fatigue
+title: Many MFA pushes denied in a few minutes
+severity: high
+technique: T1621
+kind: threshold
+source: idp
+where: {event: mfa_deny}
+count: 5
+window_min: 15
+budget_per_day: 0.2
+examples:
+  hit: [[{event: mfa_deny, ts: 0}, {event: mfa_deny, ts: 1}, {event: mfa_deny, ts: 2}, {event: mfa_deny, ts: 3}, {event: mfa_deny, ts: 4}]]
+  miss: [[{event: mfa_deny, ts: 0}, {event: mfa_deny, ts: 40}]]

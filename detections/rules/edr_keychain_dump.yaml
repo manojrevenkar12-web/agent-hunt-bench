@@ -1,0 +1,11 @@
+id: edr_keychain_dump
+title: The login keychain dumped in clear text
+severity: critical
+technique: T1555.001
+kind: match
+source: edr
+where: {cmdline: {contains: dump-keychain}}
+budget_per_day: 0.05
+examples:
+  hit: [{process: security, cmdline: "security dump-keychain -d login.keychain"}]
+  miss: [{process: security, cmdline: "security find-certificate -a"}]

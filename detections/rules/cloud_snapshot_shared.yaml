@@ -1,0 +1,11 @@
+id: cloud_snapshot_shared
+title: A disk snapshot shared with another account
+severity: critical
+technique: T1537
+kind: match
+source: cloud
+where: {event_name: ModifySnapshotAttribute}
+budget_per_day: 0.05
+examples:
+  hit: [{event_name: ModifySnapshotAttribute, principal: user/x-ci}]
+  miss: [{event_name: DescribeSnapshots}]

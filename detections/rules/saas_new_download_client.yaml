@@ -1,0 +1,12 @@
+id: saas_new_download_client
+title: Documents downloaded through a client this person has never used
+severity: medium
+technique: T1530
+kind: new_value
+source: saas
+where: {action: doc_download}
+field: client_id
+budget_per_day: 1.0
+examples:
+  hit: [[{action: doc_download, client_id: web}, {action: doc_download, client_id: drive-sync}]]
+  miss: [[{action: doc_download, client_id: web}, {action: doc_download, client_id: web}]]

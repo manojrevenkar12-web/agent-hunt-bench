@@ -1,0 +1,11 @@
+id: saas_share_to_personal
+title: A document shared with a personal email domain
+severity: medium
+technique: T1567
+kind: match
+source: saas
+where: {action: share_external, target_domain: {in: $personal_domains}}
+budget_per_day: 1.5
+examples:
+  hit: [{action: share_external, target_domain: gmail.com}]
+  miss: [{action: share_external, target_domain: acme.com}]

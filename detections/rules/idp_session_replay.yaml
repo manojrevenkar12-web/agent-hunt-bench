@@ -1,0 +1,11 @@
+id: idp_session_replay
+title: A session token replayed, or used from a scripting client
+severity: high
+technique: T1550.004
+kind: match
+source: idp
+where: {event: {in: [session_reuse]}}
+budget_per_day: 0.1
+examples:
+  hit: [{event: session_reuse, ua: python-requests}]
+  miss: [{event: login_success, ua: Chrome}]

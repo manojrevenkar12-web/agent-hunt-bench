@@ -1,0 +1,14 @@
+# The bar a change to the detections, the routing or the model has to clear on the dev environment.
+# Not moved after the held-out run.
+[platform]
+min_caught = 0.95                       # share of attack campaigns a person confirms as an incident
+min_before_impact = 0.9                 # share stopped before the data leaves or the files are encrypted
+max_items_per_day = 5                   # cases a person is asked to read
+max_attack_alerts_closed_by_model = 2   # alerts from a real attack the model closed on its own
+max_unsupported_claims_relied_on = 0    # claims that failed the check but still reached a person or closed a case
+max_benign_holds_per_week = 1           # ordinary agent sends held for a person
+must_beat = ["detection_as_code"]       # the paired interval on before-impact must sit above zero
+
+[detections]
+all_within_budget = true                # every detection holds its false-positive budget on attack-free history
+all_examples_pass = true

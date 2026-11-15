@@ -1,0 +1,56 @@
+# What really happens in a SaaS company's environment over four weeks: people working, and attackers moving along their
+# kill chains. Only scripts/evaluate.py and the tests read this file.
+name = "dev"
+seed = "dev-hunt-2026"
+days = 28
+baseline_days = 14                 # the first two weeks are history the detections may learn from; campaigns run after
+users = 300
+departments = { engineering = 0.4, sales = 0.25, finance = 0.1, people = 0.08, it = 0.07, support = 0.1 }
+agent_users = 0.45                 # share of people who run a productivity agent on their own behalf
+contractors = 0.06                 # no managed device, no directory short name
+renamed_hosts = 0.05               # endpoint hostname no longer matches the device inventory
+leavers = 0.03                     # people serving notice
+
+[benign]                           # per person per working day, on average
+logins = 3.0
+travel_login = 0.004               # a login from a new country while travelling
+mfa_fail = 0.05
+doc_views = 12
+doc_downloads = 1.5
+external_shares = 0.08
+agent_actions = 4
+agent_external = 0.15              # share of agent actions that send to an outside customer
+oauth_grants = 0.01
+cloud_calls = 6                    # engineers only
+dev_oddities = 0.03                # an engineer runs something that looks like an attack tool
+admin_role_grants = 0.02           # IT only
+agent_doc_instructions = 0.03      # an agent acts on instructions found in a document, to a customer
+client_switch = 0.004              # someone starts downloading from the mobile app or a sync client
+personal_share = 0.004             # someone shares a document with a personal address
+build_ssh = 0.03                   # an engineer logs in to a build machine
+ci_key_calls = 0.15                # engineers' CI keys, used from build runners
+
+[campaigns]
+account_takeover = 4
+insider_exfil = 4
+oauth_consent = 4
+agent_injection = 4
+cloud_key_abuse = 4
+endpoint_intrusion = 4
+variant = 0.3                      # chance a campaign uses a quieter variant of its technique
+
+[analysts]
+minutes_per_alert = 12
+on_shift = 1                       # analysts working the queue in office hours
+page_minutes = 15                  # a page reaches the on-call engineer at any hour
+capacity_per_day = 15              # alerts a day the team can read carefully
+miss_when_rested = 0.04            # chance a person closes a real attack alert
+miss_per_extra_alert = 0.004       # added for each alert over capacity that day
+
+[llm]
+escalate_attack = 0.86             # chance the model escalates an alert from a real attack, from the alert alone
+escalate_attack_with_context = 0.96
+close_benign = 0.8                 # chance it closes a benign alert, from the alert alone
+close_benign_with_context = 0.9
+claims_per_report = 4
+fabricated_claim = 0.06            # chance a claim cites an event that does not exist or misquotes one

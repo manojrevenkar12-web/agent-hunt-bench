@@ -1,0 +1,11 @@
+id: saas_bulk_export
+title: A whole workspace exported to an outside domain
+severity: critical
+technique: T1567
+kind: match
+source: saas
+where: {action: bulk_export}
+budget_per_day: 0.05
+examples:
+  hit: [{action: bulk_export, target_domain: files-share.top}]
+  miss: [{action: doc_download}]
