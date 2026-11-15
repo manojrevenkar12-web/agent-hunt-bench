@@ -1,11 +1,10 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { fireEvent, render, screen } from "@testing-library/react";
-import { readFileSync } from "node:fs";
-import { resolve } from "node:path";
 import { afterEach, describe, expect, it, vi } from "vitest";
+import report from "../../public/data/console.json";
 import { App } from "./App";
 
-const data = JSON.parse(readFileSync(resolve(__dirname, "../../public/data/console.json"), "utf8"));
+const data = report;
 
 function mount(fetchImpl: typeof fetch) {
   vi.stubGlobal("fetch", fetchImpl);
